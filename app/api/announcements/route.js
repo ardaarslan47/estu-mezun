@@ -7,7 +7,15 @@ export const GET = async (request) => {
 
     const announcements = await Announcement.find({});
 
-    return new Response(JSON.stringify(announcements), { status: 200 });
+    return new Response(
+      JSON.stringify(announcements),
+      { status: 200 },
+      {
+        headers: {
+          "Cache-Control": "no-store",
+        },
+      }
+    );
   } catch (error) {
     return new Response("Failed to fetch all announcements!", { status: 500 });
   }
