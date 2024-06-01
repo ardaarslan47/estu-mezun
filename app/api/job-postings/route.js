@@ -1,6 +1,7 @@
 import { connectToDB } from "@utils/database";
 import JobPosting from "@models/job-posting";
 
+export const dynamic = 'force-dynamic';
 export const GET = async (request) => {
   try {
     await connectToDB();
